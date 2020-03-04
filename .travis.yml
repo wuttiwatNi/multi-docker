@@ -10,14 +10,14 @@ script:
   - docker run -e CI=true fluke-monkey/react-test npm run test
 
 after_success:
-  - docker build -t fluke-monkey/multi-client ./client
-  - docker build -t fluke-monkey/multi-nginx ./nginx
-  - docker build -t fluke-monkey/multi-server ./server
-  - docker build -t fluke-monkey/multi-worker ./worker
+  - docker build -t flukemonkey/multi-client ./client
+  - docker build -t flukemonkey/multi-nginx ./nginx
+  - docker build -t flukemonkey/multi-server ./server
+  - docker build -t flukemonkey/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push fluke-monkey/multi-client
-  - docker push fluke-monkey/multi-nginx
-  - docker push fluke-monkey/multi-server
-  - docker push fluke-monkey/multi-worker
+  - docker push flukemonkey/multi-client
+  - docker push flukemonkey/multi-nginx
+  - docker push flukemonkey/multi-server
+  - docker push flukemonkey/multi-worker
