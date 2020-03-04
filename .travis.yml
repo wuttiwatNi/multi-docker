@@ -5,7 +5,6 @@ services:
 
 before_install:
   - docker build -t fluke-monkey/react-test -f ./client/Dockerfile.dev ./client
-  - docker build myotherproject
 
 script:
   - docker run -e CI=true fluke-monkey/react-test npm run test
